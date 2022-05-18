@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hardware.Views.AccelerometerView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Hardware.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AccelerometerViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label Text="{Binding Model.X, StringFormat='Accélération X: {0:N2}g'}" />
+        <Label Text="{Binding Model.Y, StringFormat='Accélération Y: {0:N2}g'}" />
+        <Label Text="{Binding Model.Z, StringFormat='Accélération Z: {0:N2}g'}" />
+
+    </StackLayout>
+
+</ContentPage>

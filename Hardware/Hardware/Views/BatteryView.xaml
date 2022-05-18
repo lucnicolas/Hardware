@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hardware.Views.BatteryView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Hardware.Converters"
+    xmlns:viewmodels="clr-namespace:Hardware.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:BatteryViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <converters:BatteryStateConverter x:Key="StateConverter" />
+    </ContentPage.Resources>
+
+
+    <StackLayout>
+
+        <Label Text="{Binding Model.Level, StringFormat='{0:P0}'}" />
+        <Label Text="{Binding Model.State, Converter={StaticResource StateConverter}}" />
+        <Label Text="{Binding Model.Source}" />
+
+    </StackLayout>
+</ContentPage>
