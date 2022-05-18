@@ -80,6 +80,15 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <FlyoutItem Title="Photo">
+        <ShellContent ContentTemplate="{DataTemplate local:CameraView}" Route="CameraView" />
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Vibreur">
+        <ShellContent ContentTemplate="{DataTemplate local:VibratorView}" Route="VibratorView" />
+    </FlyoutItem>
+
 
     <FlyoutItem Title="Acceléromètre">
         <ShellContent ContentTemplate="{DataTemplate local:AccelerometerView}" Route="AccelerometerView" />

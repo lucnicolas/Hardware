@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Hardware.Views.VibratorView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Hardware.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewmodels:VibratorViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Slider
+            x:Name="durationSlider"
+            Maximum="5000"
+            MaximumTrackColor="#888888"
+            Minimum="1"
+            MinimumTrackColor="#444444"
+            ThumbColor="Violet"
+            Value="500" />
+        <Label HorizontalTextAlignment="Center" Text="{Binding Source={x:Reference durationSlider}, Path=Value, StringFormat='{0:0} ms'}" />
+        <Button
+            Text="Vibrer !!!"
+            CommandParameter="{Binding Source={x:Reference durationSlider}, Path=Value}"
+            Command="{Binding VibrateCommand}" />
+        <Button
+            BackgroundColor="IndianRed"
+            Text="Annuler"
+            Command="{Binding CancelCommand}" />
+    </StackLayout>
+</ContentPage>

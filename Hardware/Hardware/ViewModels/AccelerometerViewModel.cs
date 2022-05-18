@@ -7,7 +7,7 @@ namespace Hardware.ViewModels
     public class AccelerometerViewModel : BaseViewModel
     {
         private AccelerometerModel model = new AccelerometerModel();
-        private AccelerometerService service = new AccelerometerService();
+        private readonly AccelerometerService service = new AccelerometerService();
 
         public AccelerometerModel Model
         {

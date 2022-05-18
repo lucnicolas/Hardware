@@ -8,18 +8,6 @@ namespace Hardware.Services
     {
         public event EventHandler<AccelerometerEventArgs> Updated;
 
-        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
-        {
-            AccelerometerModel model = new AccelerometerModel()
-            {
-                X = e.Reading.Acceleration.X,
-                Y = e.Reading.Acceleration.Y,
-                Z = e.Reading.Acceleration.Z,
-            };
-
-            Updated?.Invoke(this, new AccelerometerEventArgs { Model = model });
-        }
-
         public void Stop()
         {
             if (!Accelerometer.IsMonitoring)
@@ -36,6 +24,18 @@ namespace Hardware.Services
 
             Accelerometer.ReadingChanged += Accelerometer_ReadingChanged;
             Accelerometer.Start(SensorSpeed.UI);
+        }
+
+        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+        {
+            AccelerometerModel model = new AccelerometerModel()
+            {
+                X = e.Reading.Acceleration.X,
+                Y = e.Reading.Acceleration.Y,
+                Z = e.Reading.Acceleration.Z,
+            };
+
+            Updated?.Invoke(this, new AccelerometerEventArgs { Model = model });
         }
     }
 
